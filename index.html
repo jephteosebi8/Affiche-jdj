@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Journée Diocésaine des Jeunes 2026 — Mon affiche</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,400;0,600;0,700;1,600&display=swap">
+<style>
+:root{--bg:#f2f7ff;--fg:#10223f;--card:#fff;--ac:#1e6fd9;--or:#f7931e;--mu:#5b6b85;--bd:#d6e2f5;--in:#f7faff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1630;--fg:#eaf1ff;--card:#13224a;--mu:#9db0d3;--bd:#27407a;--in:#0e1c3d}}
+:root[data-theme="dark"]{--bg:#0b1630;--fg:#eaf1ff;--card:#13224a;--mu:#9db0d3;--bd:#27407a;--in:#0e1c3d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Poppins',system-ui,sans-serif;line-height:1.45}
+main{max-width:520px;margin:0 auto;padding:20px 16px 40px}
+.top{text-align:center;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--mu);text-transform:uppercase}
+h1{font-family:'Pacifico','Brush Script MT',cursive;font-weight:400;color:var(--ac);font-size:44px;line-height:1.1;margin:10px 0 0;text-align:center}
+.sub{text-align:center;color:var(--or);font-weight:700;font-size:22px;margin:0}
+.lead{text-align:center;color:var(--mu);font-size:14px;margin:12px 0 18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px}
+.info{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;font-size:13px;font-weight:600;margin-bottom:16px}
+.info span{background:var(--card);border:1px solid var(--bd);border-radius:99px;padding:5px 12px}
+label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+label small{font-weight:400;color:var(--mu)}
+input[type=text],select{width:100%;font:inherit;font-size:16px;padding:12px;border-radius:12px;border:1px solid var(--bd);background:var(--in);color:var(--fg)}
+.ph{display:flex;align-items:center;gap:14px}
+.ph img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid var(--ac)}
+.btn{font:inherit;font-weight:700;font-size:16px;border:0;border-radius:99px;padding:13px 20px;cursor:pointer;background:var(--ac);color:#fff}
+.btn.alt{background:transparent;color:var(--ac);border:2px solid var(--ac)}
+.btn.or{background:var(--or);color:#1a1200;width:100%;margin-top:18px;font-size:17px}
+.note{font-size:12px;color:var(--mu);margin:12px 0 0;text-align:center}
+.err{color:#d62b2b;font-size:13px;font-weight:600;min-height:18px;margin:10px 0 0;text-align:center}
+#res{display:none;margin-top:22px;text-align:center}
+#res img{width:100%;border-radius:14px;border:1px solid var(--bd);display:block}
+.row{display:flex;gap:10px;margin-top:14px}
+.row .btn{flex:1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));z-index:5}
+.modal.on{display:flex}
+.box{background:var(--card);border-radius:18px;padding:16px;width:100%;max-width:360px;text-align:center}
+#crop{width:100%;max-width:320px;aspect-ratio:1;border-radius:50%;touch-action:none;background:#888;cursor:grab}
+input[type=range]{width:100%;margin:14px 0 4px}
+footer{text-align:center;font-size:12px;color:var(--mu);margin-top:26px}
+</style></head>
+<body><main>
+<div class="top">Archidiocèse de Kinshasa · Doyenné Saint Kibuka<br>Paroisse Saint Barthélémy · Commission des Jeunes</div>
+<h1>J'irai ensemble avec la commision des jeune de ma paroisse </h1>
+<p class="sub">Journée Diocésaine des Jeunes 2026</p>
+<p class="lead">Ajoute ta photo et ton nom pour créer ton affiche personnalisée, à télécharger et partager.</p>
+<div class="info"><span>📅 Dimanche 22 novembre 2026</span><span>📍 Stade Tata Raphaël · 9h00</span></div>
+
+<div class="card">
+<label style="margin-top:0">Ta photo</label>
+<div class="ph"><img id="thumb" alt="" hidden><label class="btn alt" style="position:relative;display:inline-block;margin:0"><span id="pt">Ajouter une photo</span><input type="file" id="file" accept="image/*" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0"></label></div>
+<label for="name">Ton nom complet</label>
+<input type="text" id="name" maxlength="40" autocomplete="name" placeholder="Ex. Jephté OSEBI">
+<label for="grp">Ton groupe ou mouvement</label>
+<select id="grp"><option value="">— Sélectionne ton groupe ou mouvement —</option></select>
+<label for="extra">Un petit mot <small>(optionnel)</small></label>
+<input type="text" id="extra" maxlength="40" placeholder=" Fonction Ex.coordonnateur, ABUGAZA, secretaire  !">
+<p class="note">Ces informations n’apparaissent que sur ton affiche : elles ne sont envoyées nulle part.</p>
+<p class="err" id="err"></p>
+<button class="btn or" id="go" type="button">Générer mon affiche</button>
+</div>
+
+<div id="res">
+<img id="out" alt="Mon affiche personnalisée">
+<div class="row"><button class="btn" id="dl" type="button" hidden>Télécharger</button><button class="btn alt" id="share" type="button">Partager</button></div>
+<p class="note" id="hint" hidden>Maintiens ton doigt appuyé sur l’image pour l’enregistrer.</p>
+</div>
+<footer>Fait avec 💙 pour la Journée Diocésaine des Jeunes 2026</footer>
+</main>
+
+<div class="modal" id="modal"><div class="box">
+<canvas id="crop" width="320" height="320"></canvas>
+<input type="range" id="zoom" min="1" max="3" step="0.01" value="1" aria-label="Zoom">
+<p class="note" style="margin:0 0 12px">Glisse pour repositionner, zoome pour ajuster.</p>
+<div class="row"><button class="btn alt" id="cancel" type="button">Annuler</button><button class="btn" id="use" type="button">Utiliser cette photo</button></div>
+</div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const GROUPS=["A.P.A","BYM","CLAN K.A","JEFAC","LÉGION JUNIOR","SCOUT","MIJERCA","JEUNE DE SAINT BARTHÉLÉMY (AUTRE)"];
+GROUPS.forEach(g=>{const o=document.createElement("option");o.value=o.textContent=g;$("grp").appendChild(o)});
+const F="'Poppins',Arial,sans-serif",P="'Pacifico','Brush Script MT',cursive";
+let photo=null,img=null,s=1,minS=1,x=0,y=0,drag=null,dl=null,blob=null;
+const C=320,cc=$("crop"),cx=cc.getContext("2d");
+function clamp(){x=Math.min(0,Math.max(C-img.width*s,x));y=Math.min(0,Math.max(C-img.height*s,y))}
+function drawCrop(){cx.clearRect(0,0,C,C);cx.drawImage(img,x,y,img.width*s,img.height*s)}
+
+$("file").onchange=e=>{const f=e.target.files[0];if(!f)return;const i=new Image();i.onload=()=>{img=i;minS=Math.max(C/i.width,C/i.height);s=minS;x=(C-i.width*s)/2;y=(C-i.height*s)/2;$("zoom").value=1;drawCrop();$("modal").classList.add("on")};i.onerror=()=>{$("err").textContent="Cette photo n’a pas pu être ouverte. Essaie une photo JPG ou PNG."};const rd=new FileReader();rd.onload=()=>{i.src=rd.result};rd.readAsDataURL(f);e.target.value=""};
+$("zoom").oninput=e=>{const a=(C/2-x)/s,b=(C/2-y)/s;s=minS*e.target.value;x=C/2-a*s;y=C/2-b*s;clamp();drawCrop()};
+cc.onpointerdown=e=>{drag={px:e.clientX,py:e.clientY,x,y};cc.setPointerCapture(e.pointerId)};
+cc.onpointermove=e=>{if(!drag)return;const k=C/cc.getBoundingClientRect().width;x=drag.x+(e.clientX-drag.px)*k;y=drag.y+(e.clientY-drag.py)*k;clamp();drawCrop()};
+cc.onpointerup=cc.onpointercancel=()=>{drag=null};
+$("cancel").onclick=()=>$("modal").classList.remove("on");
+$("use").onclick=()=>{const o=document.createElement("canvas");o.width=o.height=700;const k=700/C;o.getContext("2d").drawImage(img,x*k,y*k,img.width*s*k,img.height*s*k);photo=o;$("thumb").src=o.toDataURL("image/jpeg",.85);$("thumb").hidden=false;$("pt").textContent="Changer la photo";$("modal").classList.remove("on")};
+
+function draw(name,grp,extra){
+ const W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");
+ const T=(t,px,py,font,col,al)=>{g.font=font;g.fillStyle=col;g.textAlign=al||"center";g.fillText(t,px,py)};
+ const fit=(t,max,size,wt)=>{let z=size;g.font=wt+" "+z+"px "+F;while(g.measureText(t).width>max&&z>22){z-=2;g.font=wt+" "+z+"px "+F}return g.font};
+ const rr=(a,b,w,h,r)=>{g.beginPath();g.roundRect?g.roundRect(a,b,w,h,r):g.rect(a,b,w,h)};
+ const bg=g.createLinearGradient(0,0,0,H*.8);bg.addColorStop(0,"#fff");bg.addColorStop(1,"#cfe4ff");g.fillStyle=bg;g.fillRect(0,0,W,H);
+ ["ARCHIDIOCÈSE DE KINSHASA","DOYENNÉ SAINT KIBUKA","PAROISSE SAINT BARTHÉLÉMY","COMMISSION DES JEUNES"].forEach((t,i)=>T(t,W/2,50+i*34,"700 27px "+F,"#10223f"));
+ g.fillStyle="#1e6fd9";g.fillRect(300,168,480,4);
+ T("Journée",W/2,285,"100px "+P,"#1e6fd9");
+ T("Diocésaine",W/2,360,"italic 700 62px "+F,"#f7931e");
+ g.font="700 50px "+F;const a="des jeunes ",b="2026",wa=g.measureText(a).width,wb=g.measureText(b).width,x0=(W-wa-wb)/2;
+ T(a,x0,422,"700 50px "+F,"#1e6fd9","left");T(b,x0+wa,422,"700 50px "+F,"#f7931e","left");
+ const cx0=W/2,cy=640,r=150;
+ g.beginPath();g.arc(cx0,cy,r+22,0,7);g.fillStyle="#1e6fd9";g.fill();
+ g.beginPath();g.arc(cx0,cy,r+10,0,7);g.fillStyle="#fff";g.fill();
+ g.save();g.beginPath();g.arc(cx0,cy,r,0,7);g.clip();g.drawImage(photo,cx0-r,cy-r,r*2,r*2);g.restore();
+  const rt="J’IRAI ENSEMBLE AVEC LA COMMISSION DES JEUNES";g.font=fit(rt,880,28,"700");const rw=g.measureText(rt).width+64;rr(W/2-rw/2,cy+r+2,rw,52,26);g.fillStyle="#f7931e";g.fill();T(rt,W/2,cy+r+39,g.font,"#fff");
+  
+g.font=fit(name.toUpperCase(),920,54,"700");g.fillStyle="#10223f";g.textAlign="center";g.fillText(name.toUpperCase(),W/2,cy+r+120);
+ g.font=fit(grp,820,28,"700");const gw=g.measureText(grp).width+64;
+ rr(W/2-gw/2,cy+r+142,gw,50,25);g.fillStyle="#1e6fd9";g.fill();T(grp,W/2,cy+r+176,g.font,"#fff");
+ if(extra){g.font=fit(extra,900,32,"italic 600");T(extra,W/2,cy+r+238,g.font,"#10223f")}
+ g.beginPath();g.moveTo(0,1055);g.lineTo(W,1015);g.lineTo(W,H);g.lineTo(0,H);g.fillStyle="#1e6fd9";g.fill();
+ g.fillStyle="#0a3ea8";g.fillRect(0,1115,W,H-1115);
+ T("Paroisse Saint Barthélémy",250,1165,"700 27px "+F,"#fff");T("à 6h30",250,1200,"700 27px "+F,"#fff");
+ T("Stade Tata Raphaël",830,1165,"700 27px "+F,"#fff");T("9h00",830,1200,"700 27px "+F,"#fff");
+ g.setLineDash([12,10]);g.strokeStyle="#fff";g.lineWidth=3;g.beginPath();g.moveTo(450,1185);g.quadraticCurveTo(540,1130,630,1185);g.stroke();g.setLineDash([]);
+ T("▶ 22 NOVEMBRE 2026",W/2,1300,"700 46px "+F,"#fff");
+ return c;
+}
+$("go").onclick=async()=>{
+ const n=$("name").value.trim(),gr=$("grp").value;
+ if(!photo||!n||!gr){$("err").textContent="Ajoute ta photo, ton nom et ton groupe ou mouvement.";return}
+ $("err").textContent="";
+ try{await Promise.all([document.fonts.load("100px Pacifico"),document.fonts.load("700 30px Poppins"),document.fonts.load("italic 700 30px Poppins"),document.fonts.load("italic 600 30px Poppins")])}catch(e){}
+ const c=draw(n,gr,$("extra").value.trim());
+ $("out").src=c.toDataURL("image/png");
+ c.toBlob(b=>{blob=b});
+ $("res").style.display="block";const ok=!!dl||!window.claude;$("hint").hidden=ok;$("dl").hidden=!ok;
+ $("res").scrollIntoView({behavior:"smooth"});
+};
+(window.claude&&window.claude.use?window.claude.use("downloads"):Promise.resolve(null)).then(d=>{dl=d;if(d&&$("res").style.display==="block"){$("dl").hidden=false;$("hint").hidden=true}}).catch(()=>{});
+$("dl").onclick=async()=>{if(!blob)return;if(!dl){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="affiche-jdj-2026.png";a.click();return}try{await dl.save({filename:"affiche-jdj-2026.png",data:blob})}catch(e){if(!e||e.code!=="declined")$("hint").hidden=false}};
+$("share").onclick=async()=>{
+ try{const f=new File([blob],"affiche-jdj-2026.png",{type:"image/png"});
+ if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],text:"Je serai là ! Journée Diocésaine des Jeunes 2026 — 22 novembre au Stade Tata Raphaël."});else $("hint").hidden=false}
+ catch(e){if(!e||e.name!=="AbortError")$("hint").hidden=false}
+};
+</script>
+</body></html>
